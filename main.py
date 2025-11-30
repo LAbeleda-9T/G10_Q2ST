@@ -1,46 +1,64 @@
-from js import document
+from pyscript import document, display
 
-# Dictionary of clubs
-clubs = {
-    "Badminton Club": {
-        "Description": "Play and practice badminton, join tournaments.",
-        "Meeting Time": "Mondays, 3:00 PM",
-        "Location": "Gym 1",
-        "Club Moderator": "Mr. Tan",
-        "Number of Members": 20
-    },
-    "Basketball Club": {
-        "Description": "Improve basketball skills and teamwork.",
-        "Meeting Time": "Wednesdays, 4:00 PM",
-        "Location": "Basketball Court",
-        "Club Moderator": "Ms. Cruz",
-        "Number of Members": 25
-    },
-    "Volleyball Club": {
-        "Description": "Practice volleyball and join school competitions.",
-        "Meeting Time": "Fridays, 3:30 PM",
-        "Location": "Gym 2",
-        "Club Moderator": "Mrs. Reyes",
-        "Number of Members": 18
+def Badminton(event):
+    badminton = {
+        'Name': 'Badminton Club',
+        'Description': 'A club for students who enjoy badminton and want to improve their skills.',
+        'Meeting Time': 'Every Wednesday at 1:30 PM',
+        'Location': 'Sports Hall',
+        'Club Moderator': 'Mr. Velasquez',
+        'Number of Members': 13
     }
-}
 
-# Function to display club info
-def showClubInfo(*args):
-    selected = document.getElementById("clubDropdown").value
-    info_card = document.getElementById("clubInfo")
-    
-    if selected in clubs:
-        club = clubs[selected]
-        document.getElementById("clubName").innerText = selected
-        document.getElementById("clubDesc").innerText = club["Description"]
-        document.getElementById("clubTime").innerText = club["Meeting Time"]
-        document.getElementById("clubLocation").innerText = club["Location"]
-        document.getElementById("clubModerator").innerText = club["Club Moderator"]
-        document.getElementById("clubMembers").innerText = club["Number of Members"]
-        info_card.style.display = "block"
-    else:
-        info_card.style.display = "none"
+    document.getElementById("output").innerHTML = ""
+    display(
+        f"{badminton['Name']}\n"
+        f"{badminton['Description']}\n"
+        f"Meeting Time: {badminton['Meeting Time']}\n"
+        f"Location: {badminton['Location']}\n"
+        f"Club Moderator: {badminton['Club Moderator']}\n"
+        f"Number of Members: {badminton['Number of Members']}",
+        target="output"
+    )
 
-# Bind the button click to the function
-document.getElementById("showInfoBtn").addEventListener("click", showClubInfo)
+def Volleyball(event):
+    volleyball = {
+        'Name': 'Volleyball Club',
+        'Description': 'A club for players who want to train, compete, and improve volleyball skills.',
+        'Meeting Time': 'Every Tuesday  at 3:0 PM',
+        'Location': 'Main Gym/Court',
+        'Club Moderator': 'Coach Reyes',
+        'Number of Members': 24
+    }
+
+    document.getElementById("output").innerHTML = ""
+    display(
+        f"{volleyball['Name']}\n"
+        f"{volleyball['Description']}\n"
+        f"Meeting Time: {volleyball['Meeting Time']}\n"
+        f"Location: {volleyball['Location']}\n"
+        f"Club Moderator: {volleyball['Club Moderator']}\n"
+        f"Number of Members: {volleyball['Number of Members']}",
+        target="output"
+    )
+
+def Basketball(event):
+    basketball = {
+        'Name': 'Basketball Club',
+        'Description': 'A club for students who enjoy basketball and want to improve strategy and teamwork.',
+        'Meeting Time': 'Every Monday & Friday at 4:00 PM',
+        'Location': 'Covered Court',
+        'Club Moderator': 'Coach Ramirez',
+        'Number of Members': 28
+    }
+
+    document.getElementById("output").innerHTML = ""
+    display(
+        f"{basketball['Name']}\n"
+        f"{basketball['Description']}\n"
+        f"Meeting Time: {basketball['Meeting Time']}\n"
+        f"Location: {basketball['Location']}\n"
+        f"Club Moderator: {basketball['Club Moderator']}\n"
+        f"Number of Members: {basketball['Number of Members']}",
+        target="output"
+    )
